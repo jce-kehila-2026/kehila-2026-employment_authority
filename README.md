@@ -71,7 +71,7 @@ Briefly list major limitations or missing features and any workarounds.
 Specify license (e.g., MIT) and any IP/ownership notes relevant to the non‑profit.
 
 ## Coding conventions
-* [Coding Conventions & SOLID Principles]([https://github.com/jce-kehila-2026/kehila-2026-employment_authority/wiki](https://github.com/jce-kehila-2026/kehila-2026-employment_authority/wiki/Coding-Conventions-&-SOLID-Principles))
+* [Coding Conventions & SOLID Principles](https://github.com/jce-kehila-2026/kehila-2026-employment_authority/wiki/Coding-Conventions-&-SOLID-Principles)
 
 ## Documintation
 * [Team Workflow & GitHub Governance](https://github.com/jce-kehila-2026/kehila-2026-employment_authority/wiki/Team-Workflow-&-GitHub-Governance)
