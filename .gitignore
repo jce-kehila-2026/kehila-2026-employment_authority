@@ -28,3 +28,6 @@ backend/privateKey.json
 # Firebase
 .firebase/
 .firebaserc
+
+# Frontend
+frontend/.env.local
