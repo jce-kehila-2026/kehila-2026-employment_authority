@@ -22,11 +22,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-backend/privateKey.json
-.env*
-
-# Firebase
-.firebase/
-.firebaserc
-frontend/.env.local
-employment-authority/fillstack-install-*.txt
