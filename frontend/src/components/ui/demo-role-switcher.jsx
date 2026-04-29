@@ -1,48 +1,51 @@
 import React from 'react';
-import { Box, Button, ButtonGroup, Typography, Paper } from '@mui/material';
+import { Button, ButtonGroup, Typography, Paper, Box } from '@mui/material';
 import { useAuth, MOCK_ROLES } from '../../context/auth-context';
 
 /**
- * DemoRoleSwitcher provides a UI overlay to quickly swap between user personas.
- * Following SRP: Its only responsibility is to trigger the switchDemoRole logic.
+ * DemoRoleSwitcher - Minimized and moved to the bottom-right corner.
+ * We use an absolute fixed position with high z-index to avoid layout shifts,
+ * and reduced padding/font sizes to make it unobtrusive.
  */
 const DemoRoleSwitcher = () => {
     const { switchDemoRole, userRole } = useAuth();
 
-    // Define the roles available for the demonstration
     const availableRoles = [
-        { id: MOCK_ROLES.GUEST, label: 'אורח', color: 'inherit' },
-        { id: MOCK_ROLES.EMPLOYER, label: 'מעסיק', color: 'info' },
-        { id: MOCK_ROLES.COORDINATOR, label: 'רכז', color: 'success' },
-        { id: MOCK_ROLES.ADMIN, label: 'מנהלת ', color: 'secondary' }
+        { id: MOCK_ROLES.GUEST, label: 'אורח' },
+        { id: MOCK_ROLES.EMPLOYER, label: 'מעסיק' },
+        { id: MOCK_ROLES.COORDINATOR, label: 'רכז' },
+        { id: MOCK_ROLES.ADMIN, label: 'מנהלת' }
     ];
 
     return (
         <Paper 
-            elevation={6} 
+            elevation={4} 
             sx={{ 
                 position: 'fixed', 
                 bottom: 16, 
-                left: 16, 
-                p: 2, 
-                zIndex: 9999, // Ensure it floats above all other UI elements
+                right: 16, // Moved to the right corner
+                p: 1, 
+                zIndex: 9999,
                 border: '1px solid',
                 borderColor: 'primary.main',
-                bgcolor: 'rgba(255, 255, 255, 0.95)'
+                bgcolor: 'rgba(255, 255, 255, 0.85)',
+                backdropFilter: 'blur(4px)',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center'
             }}
         >
-            <Typography variant="caption" sx={{ fontWeight: 'bold', mb: 1, display: 'block' }}>
-                כלי דמו: החלפת תפקיד (Role: {userRole})
+            <Typography variant="caption" sx={{ fontWeight: 'bold', mb: 0.5 }}>
+                Demo: {userRole}
             </Typography>
             
-            <ButtonGroup size="small" variant="outlined" aria-label="demo role switcher">
+            <ButtonGroup size="small" variant="outlined">
                 {availableRoles.map((role) => (
                     <Button
                         key={role.id}
-                        color={role.color}
                         variant={userRole === role.id ? 'contained' : 'outlined'}
                         onClick={() => switchDemoRole(role.id)}
-                        sx={{ fontSize: '0.75rem' }}
+                        sx={{ fontSize: '0.65rem', padding: '2px 6px', minWidth: '40px' }}
                     >
                         {role.label}
                     </Button>
